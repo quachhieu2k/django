@@ -1,0 +1,27 @@
+{% extends 'products/base.html' %}
+{% load static %}
+{% block 1 %}
+<div class="album py-5 bg-light">
+    <div class="container">
+
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+        {% for list in detail %}
+        <div class="col">
+          <div class="card shadow-sm">
+            <img src=" {{ list.thumbnail.url }}" alt="">
+            <div class="card-body">
+              <p class="card-text">{{list.description}}</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <a href="detail/{{ list.parent_id}}/{{ list.id }}" role="button" class="btn btn-sm btn-outline-secondary">View </a>
+                  <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                </div>
+                <small class="text-danger"><strong>{{list.duration}}</strong></small>
+              </div>
+            </div>
+          </div>
+        </div>
+        {%endfor%}
+{% endblock 1 %}
+
+
