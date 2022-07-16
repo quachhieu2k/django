@@ -14,3 +14,6 @@ def detail(request, pr_id, id, **kwargs):
 
     return render(request, 'products/detail.html', {'course':course, 'detail':detail,
                                                     'obj_vid': obj_vid, 'details':par_id})
+
+def login(request, *args, **kwargs):
+    return render(request, 'accounts/login.html', {})
