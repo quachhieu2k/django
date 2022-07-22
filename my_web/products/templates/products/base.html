@@ -13,16 +13,20 @@
     <nav class="navbar navbar-expand-lg bg-light">
         <div class="container-fluid">
     <a class="navbar-brand" href="/">Trang chủ</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+<!--    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">-->
+<!--      <span class="navbar-toggler-icon"></span>-->
+<!--    </button>-->
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Đăng nhập</a>
+            {% if user.is_authenticated %}
+          <a class="nav-link "  href="accounts/logout">Đăng xuất</a>
+            {% else %}
+            <a class="nav-link "  href="accounts/login">Đăng nhập</a>
+            {% endif %}
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Đăng ký</a>
+          <a class="nav-link" href="accounts/register">Đăng ký</a>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -49,24 +53,7 @@
   </div>
     </nav>
 
-    <main>
 
-  <section class="py-5 text-center container">
-    <div class="row py-lg-5">
-      <div class="col-lg-6 col-md-8 mx-auto">
-        <h1 class="fw-light">Album example</h1>
-        <p class="lead text-muted">Something short and leading about the collection below—its contents, the creator, etc. Make it short and sweet, but not too short so folks don’t simply skip over it entirely.</p>
-        <p>
-          <a href="#" class="btn btn-primary my-2">Giảng viên</a>
-          <a href="#" class="btn btn-secondary my-2">Thành tích</a>
-        </p>
-      </div>
-    </div>
-  </section>
-
-
-
-</main>
 
 {% block 1 %}
 {% endblock %}

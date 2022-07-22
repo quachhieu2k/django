@@ -1,5 +1,7 @@
 from django.db import models
 from embed_video.fields import EmbedVideoField
+from django.contrib.auth.models import User
+from django.utils.timezone import now
 # Create your models here.
 
 class Course(models.Model):
@@ -23,6 +25,17 @@ class Detail(models.Model):
 
     def __str__(self):
         return f"{self.title}, {self.description}, {self.duration}, {self.link_video_ytb}"
+
+
+class CourseComment(models.Model):
+    comment = models.TextField()
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    course_detail = models.ForeignKey(Detail, on_delete=models.CASCADE)
+    time_stamp = models.DateTimeField(default=now)
+
+    def __str__(self):
+        return f"{self.id} - {self.user.username} - {self.comment[0:15]} ..."
+
 
 class Item(models.Model):
     video = EmbedVideoField()
